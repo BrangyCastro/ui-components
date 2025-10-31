@@ -27,12 +27,20 @@ export default defineConfig({
       fileName: (format) => `ui-components.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'react-slick',
+        'react-slick/slick/slick.css',
+        'react-slick/slick/slick-theme.css',
+      ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'React',
+          'react-slick': 'Slider',
         },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name === 'style.css') return 'ui-components.css';

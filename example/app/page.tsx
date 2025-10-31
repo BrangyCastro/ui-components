@@ -13,6 +13,15 @@ export default function Home() {
       tags: ["CTA", "Hero", "Landing"],
       status: "stable",
     },
+    {
+      id: "hero-basic",
+      name: "HeroBasic",
+      description:
+        "Carrusel de banners hero con imágenes responsivas, controles de navegación y transiciones suaves. Ideal para destacar promociones y contenido principal.",
+      category: "Hero",
+      tags: ["Carousel", "Banner", "Hero", "Slider"],
+      status: "stable",
+    },
     // Aquí se pueden agregar más componentes en el futuro
   ];
 

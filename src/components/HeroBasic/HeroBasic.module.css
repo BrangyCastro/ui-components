@@ -1,0 +1,219 @@
+.root {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sliderContainer {
+  width: 100%;
+  height: 600px;
+}
+
+.slideWrapper {
+  width: 100%;
+  height: 600px;
+  outline: none;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  outline: none;
+}
+
+.slide.clickable {
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play/Pause Button */
+.playPauseButton {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.playPauseButton:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.playPauseButton:active {
+  transform: scale(0.95);
+}
+
+/* Custom styles for react-slick dots */
+.root :global(.slick-dots) {
+  bottom: 20px;
+}
+
+.root :global(.slick-dots li) {
+  margin: 0 4px;
+}
+
+.root :global(.slick-dots li button) {
+  width: 12px;
+  height: 12px;
+}
+
+.root :global(.slick-dots li button:before) {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.root :global(.slick-dots li.slick-active button:before) {
+  color: #FB3333;
+  opacity: 1;
+}
+
+/* Custom styles for react-slick arrows */
+.root :global(.slick-prev),
+.root :global(.slick-next) {
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
+.root :global(.slick-prev) {
+  left: 20px;
+}
+
+.root :global(.slick-next) {
+  right: 20px;
+}
+
+.root :global(.slick-prev:before),
+.root :global(.slick-next:before) {
+  font-size: 40px;
+  opacity: 0.75;
+}
+
+.root :global(.slick-prev:hover:before),
+.root :global(.slick-next:hover:before) {
+  opacity: 1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sliderContainer,
+  .slideWrapper,
+  .slide {
+    height: 400px;
+  }
+
+  .playPauseButton {
+    width: 36px;
+    height: 36px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .root :global(.slick-dots) {
+    bottom: 16px;
+  }
+
+  .root :global(.slick-prev),
+  .root :global(.slick-next) {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sliderContainer,
+  .slideWrapper,
+  .slide {
+    height: 300px;
+  }
+
+  .playPauseButton {
+    width: 32px;
+    height: 32px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .root :global(.slick-dots) {
+    bottom: 12px;
+  }
+
+  .root :global(.slick-dots li button:before) {
+    font-size: 10px;
+  }
+
+  .root :global(.slick-prev),
+  .root :global(.slick-next) {
+    width: 32px;
+    height: 32px;
+  }
+
+  .root :global(.slick-prev:before),
+  .root :global(.slick-next:before) {
+    font-size: 32px;
+  }
+}
+
+/* Override react-slick default styles */
+:global(.slick-slider) {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:global(.slick-list) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+:global(.slick-track) {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 100%;
+}
+
+:global(.slick-slide) {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+:global(.slick-slide.slick-active) {
+  display: block;
+}
+
+:global(.slick-initialized .slick-slide) {
+  display: block;
+}
