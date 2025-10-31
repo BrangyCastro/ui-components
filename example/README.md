@@ -1,91 +1,92 @@
-# Example App - @fromsolvers/ui-components
+# FromSolvers UI Components - Example
 
-Esta es una aplicación de demostración que muestra todos los componentes de la librería `@fromsolvers/ui-components` en acción.
+Este es un proyecto de ejemplo que demuestra el uso de los componentes de FromSolvers UI con Next.js, Tailwind CSS y Shadcn UI.
 
-## Características
+## Tecnologías
 
-- 🎨 Navegación interactiva entre diferentes componentes
-- 📝 Ejemplos de código para cada componente
-- 🎯 Demostración de todas las variantes y tamaños
-- 📱 Responsive design
-- ⚡ Hot Module Replacement (HMR) habilitado
+- **Next.js 15** - Framework de React para producción
+- **TypeScript** - Tipado estático para JavaScript
+- **Tailwind CSS** - Framework de CSS utility-first
+- **Shadcn UI** - Componentes UI reutilizables y accesibles
 
-## Ejecutar la aplicación
+## Instalación
 
-Desde la raíz del proyecto principal:
+1. Instala las dependencias:
 
 ```bash
-npm run example
+npm install
 ```
 
-O directamente desde esta carpeta:
+2. Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-## Componentes demostrados
+3. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-### Hero
-Sección principal con título, subtítulo y botones de CTA.
+## Componentes Incluidos
 
-### Navbar
-Barra de navegación responsiva con logo y enlaces.
+### TitleParagraphCTA
 
-### CTAButton
-Botones con 3 variantes:
-- **Primary**: Botón principal con gradiente
-- **Secondary**: Botón secundario con fondo gris
-- **Outline**: Botón con borde y fondo transparente
+Un componente elegante que combina:
+- Título con texto destacado en color
+- Párrafo descriptivo
+- Botón de llamada a la acción (CTA)
 
-Y 3 tamaños:
-- Small
-- Medium
-- Large
+**Ejemplo de uso:**
 
-### Card
-Tarjetas para mostrar contenido con:
-- Título opcional
-- Imagen opcional
-- Contenido personalizable
-- Efectos hover
-- Clickeable
+```tsx
+import { TitleParagraphCTA } from '@brangycastro/ui-components';
 
-### Footer
-Pie de página con:
-- Múltiples secciones con enlaces
-- Copyright
-- Diseño responsive en grid
+<TitleParagraphCTA
+  highlightText="¿Estas list@"
+  titleText="para Mi Billetera AT?"
+  paragraph="Conoce cómo estamos revolucionando tu experiencia en las tiendas de Apuesta Total."
+  buttonText="Regístrate"
+  onButtonClick={() => console.log('Clicked!')}
+/>
+```
 
-## Estructura del código
+## Scripts Disponibles
+
+- `npm run dev` - Inicia el servidor de desarrollo
+- `npm run build` - Construye la aplicación para producción
+- `npm start` - Inicia el servidor de producción
+- `npm run lint` - Ejecuta el linter
+
+## Estructura del Proyecto
 
 ```
 example/
-├── src/
-│   ├── App.tsx          # Aplicación principal con todos los ejemplos
-│   ├── index.css        # Estilos con Tailwind CSS
-│   └── main.tsx         # Punto de entrada
-├── tailwind.config.js   # Configuración de Tailwind
-├── postcss.config.js    # Configuración de PostCSS
-└── vite.config.ts       # Configuración de Vite con alias
+├── app/
+│   ├── globals.css       # Estilos globales con Tailwind
+│   ├── layout.tsx        # Layout principal
+│   └── page.tsx          # Página principal
+├── components/           # Componentes de Shadcn UI (cuando se agreguen)
+├── lib/
+│   └── utils.ts         # Utilidades (cn function)
+├── components.json      # Configuración de Shadcn UI
+├── tailwind.config.ts   # Configuración de Tailwind
+└── package.json
+
 ```
 
-## Desarrollo
+## Agregando Componentes de Shadcn UI
 
-Esta aplicación usa directamente el código fuente de los componentes (no el build) mediante un alias en Vite.
-
-Cualquier cambio que hagas en los componentes de la librería se reflejará automáticamente en esta aplicación gracias al Hot Module Replacement.
-
-## Build
-
-Para construir la aplicación de ejemplo:
+Para agregar componentes de Shadcn UI al proyecto:
 
 ```bash
-npm run build
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add tabs
 ```
 
-O desde la raíz:
+Los componentes se agregarán automáticamente a la carpeta `components/ui/`.
 
-```bash
-npm run example:build
-```
+## Más Información
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Shadcn UI Documentation](https://ui.shadcn.com)
+- [FromSolvers UI Components](../README.md)

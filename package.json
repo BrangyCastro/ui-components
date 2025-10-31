@@ -1,6 +1,6 @@
 {
-  "name": "@fromsolvers/ui-components",
-  "version": "1.0.0",
+  "name": "@brangycastro/ui-components",
+  "version": "1.0.5",
   "type": "module",
   "description": "Librería de componentes React para landing pages y lobbies",
   "main": "./dist/ui-components.umd.js",
@@ -15,10 +15,13 @@
       "import": "./dist/ui-components.es.js",
       "require": "./dist/ui-components.umd.js"
     },
-    "./dist/style.css": "./dist/ui-components.css"
+    "./style.css": "./dist/ui-components.css",
+    "./dist/style.css": "./dist/ui-components.css",
+    "./styles": "./dist/ui-components.css",
+    "./dist/styles/index.css": "./dist/ui-components.css"
   },
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "example": "cd example && npm run dev",
     "example:build": "cd example && npm run build"
@@ -37,23 +40,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fromsolvers/ui-components.git"
+    "url": "git+https://github.com/BrangyCastro/ui-components.git"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.16",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.1.0",
-    "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3",
-    "vite": "^7.1.12"
+    "vite": "^7.1.12",
+    "vite-plugin-dts": "^4.5.4"
   }
 }

@@ -1,14 +1,16 @@
-# @fromsolvers/ui-components
+# @brangycastro/ui-components
 
-Librería de componentes React para landing pages y lobbies desarrollada por FromSolvers. Construida con **React**, **TypeScript** y **Tailwind CSS**.
+Librería de componentes React para landing pages y lobbies desarrollada por FromSolvers. Construida con **React**, **TypeScript** y **CSS vanilla**.
 
 ## Características
 
 - ✨ Componentes modernos y responsivos
-- 🎨 Estilados con Tailwind CSS
+- 🎨 Estilados con CSS vanilla (sin dependencias)
 - 📦 Tipado completo con TypeScript
 - 🚀 Optimizado para producción
-- 🎯 Fácil de personalizar
+- 🎯 Fácil de usar - solo instala e importa
+- 🪶 Ligera - sin dependencias de estilos
+- 📱 Diseño responsive mobile-first (breakpoint md: 768px)
 - 📚 Incluye ejemplo interactivo de todos los componentes
 
 ## Demo y Ejemplos
@@ -37,78 +39,33 @@ La aplicación de ejemplo usa los componentes directamente desde el código fuen
 Crea un archivo `.npmrc` en la raíz de tu proyecto:
 
 ```
-@fromsolvers:registry=https://npm.pkg.github.com
+@brangycastro:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=TU_TOKEN_GITHUB
 ```
 
 ### 2. Instalar el paquete
 
 ```bash
-npm install @fromsolvers/ui-components
+npm install @brangycastro/ui-components
 ```
 
-### 3. Configurar Tailwind CSS en tu proyecto
-
-Esta librería usa Tailwind CSS. Necesitas tener Tailwind configurado en tu proyecto.
-
-Si aún no tienes Tailwind CSS instalado:
-
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
-```
-
-Actualiza tu `tailwind.config.js` para incluir los componentes de la librería:
-
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@fromsolvers/ui-components/dist/**/*.{js,jsx}"
-  ],
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: '#f5f7ff',
-          100: '#ebf0fe',
-          200: '#cdd9fd',
-          300: '#afc2fc',
-          400: '#7394f9',
-          500: '#667eea',
-          600: '#4c63d2',
-          700: '#3d4eb8',
-          800: '#303e95',
-          900: '#263073',
-        },
-        secondary: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#764ba2',
-          600: '#5b3a7d',
-          700: '#4a2f66',
-          800: '#3a2550',
-          900: '#2b1c3a',
-        },
-      },
-    },
-  },
-  plugins: [],
-}
-```
+**¡Eso es todo!** No necesitas instalar ninguna dependencia adicional.
 
 ## Uso
 
 ### Importar componentes y estilos
 
 ```tsx
-import { Hero, Navbar, CTAButton, Card, Footer } from '@fromsolvers/ui-components';
-import '@fromsolvers/ui-components/dist/style.css';
+import { Hero, Navbar, CTAButton, Card, Footer } from '@brangycastro/ui-components';
+import '@brangycastro/ui-components/dist/style.css';
+
+function App() {
+  return (
+    <Hero title="Mi Aplicación" subtitle="Fácil de usar">
+      <CTAButton variant="primary">Comenzar</CTAButton>
+    </Hero>
+  );
+}
 ```
 
 ## Componentes
@@ -118,7 +75,7 @@ import '@fromsolvers/ui-components/dist/style.css';
 Componente principal para la sección hero de landing pages.
 
 ```tsx
-import { Hero, CTAButton } from '@fromsolvers/ui-components';
+import { Hero, CTAButton } from '@brangycastro/ui-components';
 
 function App() {
   return (
@@ -147,7 +104,7 @@ function App() {
 Barra de navegación responsiva.
 
 ```tsx
-import { Navbar } from '@fromsolvers/ui-components';
+import { Navbar } from '@brangycastro/ui-components';
 
 function App() {
   const navItems = [
@@ -180,7 +137,7 @@ function App() {
 Botón de llamada a la acción con múltiples variantes.
 
 ```tsx
-import { CTAButton } from '@fromsolvers/ui-components';
+import { CTAButton } from '@brangycastro/ui-components';
 
 function App() {
   return (
@@ -215,7 +172,7 @@ function App() {
 Tarjeta para mostrar contenido con imagen opcional.
 
 ```tsx
-import { Card } from '@fromsolvers/ui-components';
+import { Card } from '@brangycastro/ui-components';
 
 function App() {
   return (
@@ -241,7 +198,7 @@ function App() {
 Pie de página con secciones y enlaces.
 
 ```tsx
-import { Footer } from '@fromsolvers/ui-components';
+import { Footer } from '@brangycastro/ui-components';
 
 function App() {
   const footerSections = [
@@ -299,40 +256,62 @@ npm publish
 
 Esta librería incluye definiciones de tipos TypeScript. No necesitas instalar `@types` adicionales.
 
+## Diseño Responsive
+
+Los componentes están diseñados con un enfoque **mobile-first**:
+
+- **Por defecto (< 768px)**: Diseño optimizado para móviles
+- **md (≥ 768px)**: Diseño optimizado para web/desktop
+
+### Breakpoints
+
+- **Mobile**: < 768px
+- **Desktop/Web (md)**: ≥ 768px
+- **Large (lg)**: ≥ 1024px (usado en Footer)
+
 ## Personalización
 
-### Extender clases de Tailwind
-
-Puedes personalizar los componentes pasando clases de Tailwind adicionales a través de la prop `className`:
+Puedes personalizar los componentes pasando clases CSS personalizadas a través de la prop `className`:
 
 ```tsx
 <Hero
   title="Mi título"
   subtitle="Mi subtítulo"
-  className="bg-blue-900 min-h-[700px]"
+  className="mi-clase-personalizada"
 >
-  <CTAButton className="shadow-2xl">
+  <CTAButton className="mi-boton-custom">
     Mi botón personalizado
   </CTAButton>
 </Hero>
 ```
 
-### Personalizar colores
+Luego en tu CSS:
 
-Los componentes usan los colores `primary` y `secondary` de Tailwind. Puedes personalizar estos colores en tu `tailwind.config.js`:
+```css
+.mi-clase-personalizada {
+  min-height: 700px;
+  /* tus estilos personalizados */
+}
 
-```js
-theme: {
-  extend: {
-    colors: {
-      primary: {
-        500: '#tu-color-primario',
-      },
-      secondary: {
-        500: '#tu-color-secundario',
-      },
-    },
-  },
+.mi-boton-custom {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  /* tus estilos personalizados */
+}
+```
+
+### Personalizar colores de gradiente
+
+Los componentes usan gradientes CSS predefinidos. Puedes sobrescribir los estilos usando CSS:
+
+```css
+/* Personalizar el gradiente del Hero */
+.hero {
+  background: linear-gradient(to bottom right, #tu-color-primario, #tu-color-secundario) !important;
+}
+
+/* Personalizar el gradiente del botón primario */
+.cta-button--primary {
+  background: linear-gradient(to bottom right, #tu-color-primario, #tu-color-secundario) !important;
 }
 ```
 
@@ -340,7 +319,7 @@ theme: {
 
 - **React 18+**
 - **TypeScript 5+**
-- **Tailwind CSS 4+**
+- **CSS vanilla** (sin dependencias)
 - **Vite** (bundler)
 
 ## Licencia
