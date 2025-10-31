@@ -1,6 +1,6 @@
 {
   "name": "@brangycastro/ui-components",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "type": "module",
   "description": "Librería de componentes React para landing pages y lobbies",
   "main": "./dist/ui-components.umd.js",
