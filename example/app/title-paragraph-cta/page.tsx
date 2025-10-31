@@ -220,6 +220,12 @@ export default function TitleParagraphCTAPage() {
                   <td className="py-3 px-4 text-sm">Button background color (hex or any valid CSS color)</td>
                 </tr>
                 <tr>
+                  <td className="py-3 px-4 font-mono text-sm">backgroundColor</td>
+                  <td className="py-3 px-4 font-mono text-sm text-blue-600">string</td>
+                  <td className="py-3 px-4 font-mono text-sm">&quot;#f5f5f5&quot;</td>
+                  <td className="py-3 px-4 text-sm">Section background color (hex or any valid CSS color)</td>
+                </tr>
+                <tr>
                   <td className="py-3 px-4 font-mono text-sm">openInNewTab</td>
                   <td className="py-3 px-4 font-mono text-sm text-blue-600">boolean</td>
                   <td className="py-3 px-4 font-mono text-sm">true</td>

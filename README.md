@@ -1,327 +1,366 @@
 # @brangycastro/ui-components
 
-Librería de componentes React para landing pages y lobbies desarrollada por FromSolvers. Construida con **React**, **TypeScript** y **CSS vanilla**.
+Modern React component library for landing pages and marketing sections, built by FromSolvers. Powered by **React 19**, **TypeScript**, and **CSS Modules**.
 
-## Características
+## ✨ Features
 
-- ✨ Componentes modernos y responsivos
-- 🎨 Estilados con CSS vanilla (sin dependencias)
-- 📦 Tipado completo con TypeScript
-- 🚀 Optimizado para producción
-- 🎯 Fácil de usar - solo instala e importa
-- 🪶 Ligera - sin dependencias de estilos
-- 📱 Diseño responsive mobile-first (breakpoint md: 768px)
-- 📚 Incluye ejemplo interactivo de todos los componentes
+- 🎨 **CSS Modules**: Scoped styles prevent conflicts with host project CSS
+- 🛡️ **High Specificity**: All styles use `!important` to resist global CSS overrides
+- 📦 **Fully Typed**: Complete TypeScript definitions included
+- 🚀 **Production Ready**: Optimized bundle with minimal dependencies
+- 🪶 **Lightweight**: Only 5.6 kB package size (gzipped CSS: 0.60 kB)
+- 📱 **Responsive**: Mobile-first design with breakpoint at 768px
+- ⚡ **React 18 & 19**: Compatible with both versions
+- 🎯 **Zero Style Conflicts**: Works seamlessly with any CSS framework
 
-## Demo y Ejemplos
+## 📦 Installation
 
-Esta librería incluye una carpeta `example/` con una aplicación de demostración que muestra todos los componentes en acción con ejemplos de código.
+### 1. Configure GitHub Packages Authentication
 
-### Ver los ejemplos localmente
-
-```bash
-# Desde la raíz del proyecto
-npm run example
-```
-
-Esto iniciará un servidor de desarrollo en http://localhost:5173/ donde podrás:
-- Ver todos los componentes funcionando
-- Navegar entre diferentes ejemplos
-- Ver el código de uso de cada componente
-- Probar interacciones y variantes
-
-La aplicación de ejemplo usa los componentes directamente desde el código fuente, por lo que cualquier cambio que hagas en los componentes se reflejará automáticamente.
-
-## Instalación
-
-### 1. Configurar autenticación con GitHub Packages
-
-Crea un archivo `.npmrc` en la raíz de tu proyecto:
+Create a `.npmrc` file in your project root:
 
 ```
 @brangycastro:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TU_TOKEN_GITHUB
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
 ```
 
-### 2. Instalar el paquete
+To get a GitHub token:
+1. Go to https://github.com/settings/tokens/new
+2. Select scopes: `read:packages`
+3. Generate and copy the token
+
+### 2. Install the Package
 
 ```bash
 npm install @brangycastro/ui-components
 ```
 
-**¡Eso es todo!** No necesitas instalar ninguna dependencia adicional.
+**That's it!** No additional dependencies required.
 
-## Uso
-
-### Importar componentes y estilos
+## 🚀 Quick Start
 
 ```tsx
-import { Hero, Navbar, CTAButton, Card, Footer } from '@brangycastro/ui-components';
-import '@brangycastro/ui-components/dist/style.css';
+import { TitleParagraphCTA } from '@brangycastro/ui-components';
+import '@brangycastro/ui-components/style.css';
 
 function App() {
   return (
-    <Hero title="Mi Aplicación" subtitle="Fácil de usar">
-      <CTAButton variant="primary">Comenzar</CTAButton>
-    </Hero>
-  );
-}
-```
-
-## Componentes
-
-### Hero
-
-Componente principal para la sección hero de landing pages.
-
-```tsx
-import { Hero, CTAButton } from '@brangycastro/ui-components';
-
-function App() {
-  return (
-    <Hero
-      title="Bienvenido a FromSolvers"
-      subtitle="Creamos soluciones innovadoras"
-      backgroundImage="/hero-bg.jpg"
-    >
-      <CTAButton variant="primary" size="large">
-        Comenzar
-      </CTAButton>
-    </Hero>
-  );
-}
-```
-
-**Props:**
-- `title` (string, requerido): Título principal
-- `subtitle` (string, opcional): Subtítulo
-- `backgroundImage` (string, opcional): URL de la imagen de fondo
-- `className` (string, opcional): Clases CSS adicionales
-- `children` (ReactNode, opcional): Contenido hijo
-
-### Navbar
-
-Barra de navegación responsiva.
-
-```tsx
-import { Navbar } from '@brangycastro/ui-components';
-
-function App() {
-  const navItems = [
-    { label: 'Inicio', href: '/' },
-    { label: 'Servicios', href: '/servicios' },
-    { label: 'Contacto', href: '/contacto' }
-  ];
-
-  return (
-    <Navbar
-      logo={<img src="/logo.png" alt="Logo" />}
-      items={navItems}
+    <TitleParagraphCTA
+      title="Welcome to My Application"
+      titleStyle="red-black"
+      description="Build amazing landing pages with modern React components"
+      alignment="center"
+      buttonText="Get Started"
+      buttonLink="/signup"
+      backgroundColor="#f5f5f5"
+      buttonColor="#FB3333"
+      textColor="#ffffff"
+      openInNewTab={false}
     />
   );
 }
 ```
 
-**Props:**
-- `logo` (ReactNode, opcional): Logo o elemento personalizado
-- `items` (NavItem[], requerido): Array de items de navegación
-- `className` (string, opcional): Clases CSS adicionales
+## 📚 Components
 
-**NavItem:**
-- `label` (string): Texto del enlace
-- `href` (string): URL del enlace
-- `onClick` (función, opcional): Manejador de clic
+### TitleParagraphCTA
 
-### CTAButton
+Versatile marketing component that combines a stylized title, optional description, and optional call-to-action button. Perfect for hero sections, landing pages, and promotional content.
 
-Botón de llamada a la acción con múltiples variantes.
+#### Props
 
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | **required** | The main title text |
+| `titleStyle` | `'red' \| 'black' \| 'red-black'` | **required** | Style of the title. `'red-black'` automatically splits the title in half |
+| `description` | `string` | `undefined` | Optional description text below the title |
+| `alignment` | `'left' \| 'center' \| 'right'` | `'center'` | Horizontal alignment of all content |
+| `buttonText` | `string` | `undefined` | Text for the CTA button. Button won't render if omitted |
+| `buttonLink` | `string` | `undefined` | URL for the button link |
+| `textColor` | `string` | `'#ffffff'` | Button text color (any valid CSS color) |
+| `buttonColor` | `string` | `'#FB3333'` | Button background color (any valid CSS color) |
+| `backgroundColor` | `string` | `'#f5f5f5'` | Section background color (any valid CSS color) |
+| `openInNewTab` | `boolean` | `true` | Whether to open the link in a new tab |
+| `className` | `string` | `''` | Additional CSS classes for the wrapper |
+
+#### Examples
+
+**Full Featured with Red-Black Title:**
 ```tsx
-import { CTAButton } from '@brangycastro/ui-components';
-
-function App() {
-  return (
-    <>
-      <CTAButton variant="primary" size="large">
-        Acción Principal
-      </CTAButton>
-
-      <CTAButton variant="secondary" size="medium">
-        Acción Secundaria
-      </CTAButton>
-
-      <CTAButton variant="outline" size="small">
-        Outline
-      </CTAButton>
-    </>
-  );
-}
+<TitleParagraphCTA
+  title="Transform Your Business Today"
+  titleStyle="red-black"
+  description="Join thousands of companies using our platform to scale and grow."
+  alignment="center"
+  buttonText="Start Free Trial"
+  buttonLink="/signup"
+  backgroundColor="#ffffff"
+  buttonColor="#FB3333"
+  textColor="#ffffff"
+  openInNewTab={false}
+/>
 ```
 
-**Props:**
-- `children` (ReactNode, requerido): Contenido del botón
-- `onClick` (función, opcional): Manejador de clic
-- `variant` ('primary' | 'secondary' | 'outline', default: 'primary'): Variante del botón
-- `size` ('small' | 'medium' | 'large', default: 'medium'): Tamaño del botón
-- `className` (string, opcional): Clases CSS adicionales
-- `disabled` (boolean, default: false): Estado deshabilitado
-- `type` ('button' | 'submit' | 'reset', default: 'button'): Tipo de botón
-
-### Card
-
-Tarjeta para mostrar contenido con imagen opcional.
-
+**All Red Title, Left Aligned:**
 ```tsx
-import { Card } from '@brangycastro/ui-components';
-
-function App() {
-  return (
-    <Card
-      title="Título de la tarjeta"
-      image="/card-image.jpg"
-    >
-      <p>Contenido de la tarjeta aquí</p>
-    </Card>
-  );
-}
+<TitleParagraphCTA
+  title="Premium Solutions"
+  titleStyle="red"
+  description="Enterprise-grade tools for modern teams"
+  alignment="left"
+  buttonText="Contact Sales"
+  buttonLink="/contact"
+/>
 ```
 
-**Props:**
-- `title` (string, opcional): Título de la tarjeta
-- `image` (string, opcional): URL de la imagen
-- `children` (ReactNode, requerido): Contenido de la tarjeta
-- `className` (string, opcional): Clases CSS adicionales
-- `onClick` (función, opcional): Manejador de clic
-
-### Footer
-
-Pie de página con secciones y enlaces.
-
+**Black Title, No Button:**
 ```tsx
-import { Footer } from '@brangycastro/ui-components';
-
-function App() {
-  const footerSections = [
-    {
-      title: 'Productos',
-      links: [
-        { label: 'Producto 1', href: '/producto1' },
-        { label: 'Producto 2', href: '/producto2' }
-      ]
-    },
-    {
-      title: 'Empresa',
-      links: [
-        { label: 'Acerca de', href: '/about' },
-        { label: 'Contacto', href: '/contact' }
-      ]
-    }
-  ];
-
-  return (
-    <Footer
-      sections={footerSections}
-      copyright="© 2025 FromSolvers. Todos los derechos reservados."
-    />
-  );
-}
+<TitleParagraphCTA
+  title="Simple and Elegant"
+  titleStyle="black"
+  description="Sometimes less is more"
+  alignment="center"
+/>
 ```
 
-**Props:**
-- `sections` (FooterSection[], opcional): Array de secciones
-- `copyright` (string, opcional): Texto de copyright
-- `className` (string, opcional): Clases CSS adicionales
-- `children` (ReactNode, opcional): Contenido personalizado
+**Transparent Background:**
+```tsx
+<TitleParagraphCTA
+  title="Overlay Section"
+  titleStyle="red-black"
+  description="Works great on top of images"
+  backgroundColor="transparent"
+  buttonText="Learn More"
+  buttonLink="#"
+/>
+```
 
-## Desarrollo
+**Custom Brand Colors:**
+```tsx
+<TitleParagraphCTA
+  title="Your Brand Here"
+  titleStyle="red-black"
+  description="Customize colors to match your brand"
+  buttonText="Get Started"
+  buttonLink="/start"
+  backgroundColor="#1a1a1a"
+  buttonColor="#3B82F6"
+  textColor="#ffffff"
+/>
+```
 
-### Construir la librería
+## 🎨 CSS Architecture
+
+This library uses **CSS Modules** for style isolation. All class names are automatically scoped with unique hashes, preventing conflicts with your project's CSS.
+
+### Example Generated Classes
+
+```css
+.TitleParagraphCTA-module__root___0a8zD
+.TitleParagraphCTA-module__title___qQDoP
+.TitleParagraphCTA-module__button___zZg3-
+```
+
+### Protection Against Global Styles
+
+All styles use `!important` to ensure components maintain their appearance even when the host project has aggressive global CSS like:
+
+```css
+/* These won't affect the component */
+body * { font-size: 12px !important; }
+* { box-sizing: content-box; }
+div { padding: 0; margin: 0; }
+```
+
+The component's font sizes, spacing, and layout remain exactly as designed.
+
+## 📱 Responsive Design
+
+Components are built with a **mobile-first** approach:
+
+- **Mobile (< 768px)**: Optimized for touch devices
+- **Desktop (≥ 768px)**: Enhanced layout for larger screens
+
+### TitleParagraphCTA Breakpoints
+
+- **Mobile**: Title 1.75rem, Button padding 0.875rem 2.5rem
+- **Desktop**: Title 2.5rem, Button padding 1rem 3rem
+
+## 🧪 Interactive Example & Documentation
+
+This library includes a complete example application with:
+- **Component Lobby**: Browse all available components
+- **Live Documentation**: See components in action
+- **Interactive Configurator**: Test props in real-time
+- **Code Generator**: Get copy-paste ready code
+
+### Run Example Locally
+
+```bash
+# From project root
+cd example
+npm install
+npm run dev
+```
+
+Visit http://localhost:3000 to explore:
+- Component gallery and descriptions
+- Live examples with different configurations
+- Interactive prop configurator
+- Generated code snippets
+
+## 🛠️ Development
+
+### Build the Library
 
 ```bash
 npm run build
 ```
 
-### Publicar en GitHub Packages
+This generates:
+- `dist/ui-components.es.js` (ES module)
+- `dist/ui-components.umd.js` (UMD module)
+- `dist/ui-components.css` (Styles with CSS Modules)
+- `dist/*.d.ts` (TypeScript definitions)
 
-1. Asegúrate de tener un token de GitHub con permisos de `write:packages`
-2. Configura la variable de entorno `GITHUB_TOKEN`
-3. Ejecuta:
+### Publish to GitHub Packages
 
 ```bash
+# Increment version
+npm version patch|minor|major
+
+# Build
 npm run build
+
+# Publish
 npm publish
 ```
 
-## TypeScript
+## 🔧 Customization
 
-Esta librería incluye definiciones de tipos TypeScript. No necesitas instalar `@types` adicionales.
+### Override Styles with className
 
-## Diseño Responsive
-
-Los componentes están diseñados con un enfoque **mobile-first**:
-
-- **Por defecto (< 768px)**: Diseño optimizado para móviles
-- **md (≥ 768px)**: Diseño optimizado para web/desktop
-
-### Breakpoints
-
-- **Mobile**: < 768px
-- **Desktop/Web (md)**: ≥ 768px
-- **Large (lg)**: ≥ 1024px (usado en Footer)
-
-## Personalización
-
-Puedes personalizar los componentes pasando clases CSS personalizadas a través de la prop `className`:
+You can add custom CSS classes for additional styling:
 
 ```tsx
-<Hero
-  title="Mi título"
-  subtitle="Mi subtítulo"
-  className="mi-clase-personalizada"
->
-  <CTAButton className="mi-boton-custom">
-    Mi botón personalizado
-  </CTAButton>
-</Hero>
+<TitleParagraphCTA
+  title="Custom Styled"
+  titleStyle="red-black"
+  className="my-custom-section"
+/>
 ```
-
-Luego en tu CSS:
 
 ```css
-.mi-clase-personalizada {
-  min-height: 700px;
-  /* tus estilos personalizados */
-}
-
-.mi-boton-custom {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  /* tus estilos personalizados */
+.my-custom-section {
+  padding: 8rem 2rem !important; /* More padding */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 ```
 
-### Personalizar colores de gradiente
+**Note**: Use `!important` if you need to override component styles.
 
-Los componentes usan gradientes CSS predefinidos. Puedes sobrescribir los estilos usando CSS:
+### Dynamic Colors
 
-```css
-/* Personalizar el gradiente del Hero */
-.hero {
-  background: linear-gradient(to bottom right, #tu-color-primario, #tu-color-secundario) !important;
-}
+All color props accept any valid CSS color value:
 
-/* Personalizar el gradiente del botón primario */
-.cta-button--primary {
-  background: linear-gradient(to bottom right, #tu-color-primario, #tu-color-secundario) !important;
-}
+```tsx
+// Hex colors
+backgroundColor="#f0f0f0"
+buttonColor="#FF6B6B"
+
+// RGB/RGBA
+backgroundColor="rgb(245, 245, 245)"
+buttonColor="rgba(251, 51, 51, 0.9)"
+
+// Named colors
+backgroundColor="transparent"
+buttonColor="crimson"
+
+// HSL
+backgroundColor="hsl(0, 0%, 96%)"
+buttonColor="hsl(0, 87%, 59%)"
 ```
 
-## Tecnologías
+## 📦 Bundle Information
 
-- **React 18+**
-- **TypeScript 5+**
-- **CSS vanilla** (sin dependencias)
-- **Vite** (bundler)
+### Current Version: 1.3.2
 
-## Licencia
+**Package Size**: 5.6 kB
+**Unpacked**: 16.7 kB
+**CSS (minified)**: 2.24 kB
+**CSS (gzipped)**: 0.60 kB
+**JS ES (minified)**: 2.40 kB
+**JS UMD (minified)**: 1.93 kB
+
+## 🔄 Version History
+
+### v1.3.2 (Latest)
+- 🐛 Fixed title span font-size inheritance issue
+- Added explicit `font-size: inherit !important` to title spans
+- Ensures consistent title appearance across all projects
+
+### v1.3.1
+- 🐛 Added `!important` to all critical CSS properties
+- Prevents global CSS from overriding component styles
+- Added `box-sizing: border-box !important`
+
+### v1.3.0
+- ✨ Added `backgroundColor` prop to TitleParagraphCTA
+- Default value: `#f5f5f5`
+
+### v1.2.0
+- ✨ Implemented CSS Modules for scoped styling
+- Removed global CSS styles
+- 83% bundle size reduction (from 10.97 kB to 1.89 kB)
+
+### v1.1.1
+- 🐛 Fixed React instance conflict
+- Configured automatic JSX runtime
+- Externalized `react/jsx-runtime`
+
+### v1.1.0
+- ✨ Added TitleParagraphCTA component
+- Created lobby system for component browsing
+- Rebuilt example with Next.js 15 + Shadcn UI
+- Added interactive configurator
+
+## 🧰 Tech Stack
+
+- **React**: 18.0.0 or 19.0.0
+- **TypeScript**: 5.9+
+- **Build Tool**: Vite 7
+- **Styling**: CSS Modules
+- **Bundle**: ES Modules + UMD
+
+## 📄 TypeScript Support
+
+Full TypeScript definitions included. No need to install `@types` packages.
+
+```tsx
+import type { TitleParagraphCTAProps } from '@brangycastro/ui-components';
+
+const config: TitleParagraphCTAProps = {
+  title: "Type-safe Configuration",
+  titleStyle: "red-black",
+  // TypeScript will validate all props
+};
+```
+
+## 🤝 Contributing
+
+This is a private package for FromSolvers projects. For issues or feature requests, contact the development team.
+
+## 📝 License
 
 ISC
+
+## 🔗 Links
+
+- **Repository**: https://github.com/BrangyCastro/ui-components
+- **Package**: https://github.com/BrangyCastro/ui-components/packages
+- **Author**: FromSolvers
+
+---
+
+Built with ❤️ by FromSolvers

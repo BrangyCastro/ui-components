@@ -20,6 +20,7 @@ export default function ConfiguratorPage() {
     buttonLink: "#",
     textColor: "#ffffff",
     buttonColor: "#FB3333",
+    backgroundColor: "#f5f5f5",
     openInNewTab: true,
   });
 
@@ -80,6 +81,7 @@ export default function ConfiguratorPage() {
                     buttonLink={config.buttonLink}
                     textColor={config.textColor}
                     buttonColor={config.buttonColor}
+                    backgroundColor={config.backgroundColor}
                     openInNewTab={config.openInNewTab}
                   />
                 ) : (
@@ -121,6 +123,7 @@ export default function ConfiguratorPage() {
   buttonLink="${config.buttonLink}"` : ''}
   textColor="${config.textColor}"
   buttonColor="${config.buttonColor}"
+  backgroundColor="${config.backgroundColor}"
   openInNewTab={${config.openInNewTab}}
 />`}
                     </code>

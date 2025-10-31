@@ -23,6 +23,7 @@ export interface TitleParagraphCTAConfig {
   buttonLink: string;
   textColor: string;
   buttonColor: string;
+  backgroundColor: string;
   openInNewTab: boolean;
 }
 
@@ -44,6 +45,7 @@ export function TitleParagraphCTAForm({
     buttonLink: initialConfig?.buttonLink || "",
     textColor: initialConfig?.textColor || "#ffffff",
     buttonColor: initialConfig?.buttonColor || "#FB3333",
+    backgroundColor: initialConfig?.backgroundColor || "#f5f5f5",
     openInNewTab: initialConfig?.openInNewTab || true,
   });
 
@@ -206,7 +208,7 @@ export function TitleParagraphCTAForm({
         </div>
 
         {/* Colores y Nueva pestaña */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Color del texto */}
           <div>
             <Label htmlFor="textColor" className="text-base font-semibold">
@@ -252,6 +254,33 @@ export function TitleParagraphCTAForm({
                   updateConfig({ buttonColor: e.target.value })
                 }
                 placeholder="#FB3333"
+                className="flex-1"
+              />
+            </div>
+          </div>
+
+          {/* Color de fondo */}
+          <div>
+            <Label htmlFor="backgroundColor" className="text-base font-semibold">
+              Color de fondo (opcional)
+            </Label>
+            <div className="flex gap-2 items-center mt-2">
+              <Input
+                id="backgroundColor"
+                type="color"
+                value={config.backgroundColor}
+                onChange={(e) =>
+                  updateConfig({ backgroundColor: e.target.value })
+                }
+                className="w-20 h-10 p-1 cursor-pointer"
+              />
+              <Input
+                type="text"
+                value={config.backgroundColor}
+                onChange={(e) =>
+                  updateConfig({ backgroundColor: e.target.value })
+                }
+                placeholder="#f5f5f5"
                 className="flex-1"
               />
             </div>
