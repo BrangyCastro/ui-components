@@ -9,6 +9,7 @@ export interface TitleParagraphCTAProps {
   buttonLink?: string;
   textColor?: string;
   buttonColor?: string;
+  backgroundColor?: string;
   openInNewTab?: boolean;
   className?: string;
 }
@@ -22,6 +23,7 @@ export const TitleParagraphCTA = ({
   buttonLink,
   textColor = '#ffffff',
   buttonColor = '#FB3333',
+  backgroundColor = '#f5f5f5',
   openInNewTab = true,
   className = '',
 }: TitleParagraphCTAProps) => {
@@ -64,6 +66,9 @@ export const TitleParagraphCTA = ({
   return (
     <section
       className={`${styles.root} ${styles[alignment]} ${className}`}
+      style={{
+        backgroundColor,
+      }}
     >
       <div className={styles.container}>
         <h2 className={styles.title}>
