@@ -39,10 +39,16 @@
 
 .highlight {
   color: #FB3333 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }
 
 .normal {
   color: #000 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
 }
 
 .paragraph {
