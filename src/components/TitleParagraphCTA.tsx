@@ -1,4 +1,3 @@
-import React from 'react';
 import './TitleParagraphCTA.css';
 
 export interface TitleParagraphCTAProps {
@@ -14,7 +13,7 @@ export interface TitleParagraphCTAProps {
   className?: string;
 }
 
-export const TitleParagraphCTA: React.FC<TitleParagraphCTAProps> = ({
+export const TitleParagraphCTA = ({
   title,
   titleStyle,
   description,
@@ -25,7 +24,7 @@ export const TitleParagraphCTA: React.FC<TitleParagraphCTAProps> = ({
   buttonColor = '#FB3333',
   openInNewTab = true,
   className = '',
-}) => {
+}: TitleParagraphCTAProps) => {
   const handleButtonClick = () => {
     if (buttonLink) {
       if (openInNewTab) {

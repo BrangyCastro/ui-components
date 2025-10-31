@@ -5,7 +5,9 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'automatic',
+    }),
     dts({
       insertTypesEntry: true,
       include: ['src'],
@@ -19,11 +21,12 @@ export default defineConfig({
       fileName: (format) => `ui-components.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'React',
         },
       },
     },
