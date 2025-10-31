@@ -1,4 +1,4 @@
-import './TitleParagraphCTA.css';
+import styles from './TitleParagraphCTA.module.css';
 
 export interface TitleParagraphCTAProps {
   title: string;
@@ -37,9 +37,9 @@ export const TitleParagraphCTA = ({
 
   const renderTitle = () => {
     if (titleStyle === 'red') {
-      return <span className="title-paragraph-cta__highlight">{title}</span>;
+      return <span className={styles.highlight}>{title}</span>;
     } else if (titleStyle === 'black') {
-      return <span className="title-paragraph-cta__normal">{title}</span>;
+      return <span className={styles.normal}>{title}</span>;
     } else {
       // red-black: split title
       const words = title.split(' ');
@@ -49,11 +49,11 @@ export const TitleParagraphCTA = ({
 
       return (
         <>
-          <span className="title-paragraph-cta__highlight">{firstPart}</span>
+          <span className={styles.highlight}>{firstPart}</span>
           {secondPart && (
             <>
               {' '}
-              <span className="title-paragraph-cta__normal">{secondPart}</span>
+              <span className={styles.normal}>{secondPart}</span>
             </>
           )}
         </>
@@ -63,20 +63,20 @@ export const TitleParagraphCTA = ({
 
   return (
     <section
-      className={`title-paragraph-cta title-paragraph-cta--${alignment} ${className}`}
+      className={`${styles.root} ${styles[alignment]} ${className}`}
     >
-      <div className="title-paragraph-cta__container">
-        <h2 className="title-paragraph-cta__title">
+      <div className={styles.container}>
+        <h2 className={styles.title}>
           {renderTitle()}
         </h2>
 
         {description && (
-          <p className="title-paragraph-cta__paragraph">{description}</p>
+          <p className={styles.paragraph}>{description}</p>
         )}
 
         {buttonText && (
           <button
-            className="title-paragraph-cta__button"
+            className={styles.button}
             onClick={handleButtonClick}
             style={{
               backgroundColor: buttonColor,

@@ -13,6 +13,12 @@ export default defineConfig({
       include: ['src'],
     }),
   ],
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -27,6 +33,10 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'React',
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'ui-components.css';
+          return assetInfo.name || 'asset';
         },
       },
     },
