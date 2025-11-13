@@ -22,6 +22,15 @@ export default function Home() {
       tags: ["Carousel", "Banner", "Hero", "Slider"],
       status: "stable",
     },
+    {
+      id: "title-carousel-cards-cta",
+      name: "TitleCarouselCardsCTA",
+      description:
+        "Componente de carrusel de tarjetas con título estilizado, iconos, descripciones y botones CTA. Perfecto para secciones de ayuda, FAQs y características.",
+      category: "Marketing / Carousel",
+      tags: ["Carousel", "Cards", "CTA", "FAQ", "Help"],
+      status: "stable",
+    },
     // Aquí se pueden agregar más componentes en el futuro
   ];
 
@@ -40,7 +49,7 @@ export default function Home() {
             </p>
             <div className="flex items-center justify-center gap-4 mt-6">
               <span className="rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-800">
-                v1.0.0
+                v1.5.0
               </span>
               <span className="rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-800">
                 {components.length} Component{components.length !== 1 ? "s" : ""}
