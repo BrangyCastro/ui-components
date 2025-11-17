@@ -31,6 +31,15 @@ export default function Home() {
       tags: ["Carousel", "Cards", "CTA", "FAQ", "Help"],
       status: "stable",
     },
+    {
+      id: "title-carousel-cards-list",
+      name: "TitleCarouselCardsList",
+      description:
+        "Carrusel de tarjetas con imágenes destacadas y listas numeradas. Ideal para tutoriales paso a paso, guías de uso y procesos explicativos.",
+      category: "Marketing / Carousel",
+      tags: ["Carousel", "Cards", "Tutorial", "Step-by-step", "Guide"],
+      status: "stable",
+    },
     // Aquí se pueden agregar más componentes en el futuro
   ];
 
@@ -49,7 +58,7 @@ export default function Home() {
             </p>
             <div className="flex items-center justify-center gap-4 mt-6">
               <span className="rounded-full bg-red-100 px-4 py-2 text-sm font-medium text-red-800">
-                v1.5.0
+                v1.6.0
               </span>
               <span className="rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-800">
                 {components.length} Component{components.length !== 1 ? "s" : ""}

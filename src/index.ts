@@ -8,5 +8,8 @@ export type { HeroBasicProps, HeroBanner } from './components/HeroBasic/HeroBasi
 export { TitleCarouselCardsCTA } from './components/TitleCarouselCardsCTA/TitleCarouselCardsCTA';
 export type { TitleCarouselCardsCTAProps, CarouselCard } from './components/TitleCarouselCardsCTA/TitleCarouselCardsCTA';
 
+export { TitleCarouselCardsList } from './components/TitleCarouselCardsList/TitleCarouselCardsList';
+export type { TitleCarouselCardsListProps, CarouselListCard } from './components/TitleCarouselCardsList/TitleCarouselCardsList';
+
 // Export styles
 import './styles/index.css';
